@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test" : "npx playwrigth test --project=chromium",
-    "testUi" : "npx playwrigth test --ui"
+    "test": "npx playwrigth test --project=chromium",
+    "testUi": "npx playwrigth test --ui"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "playwright": "^1.44.0"
+    "playwright": "^1.44.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@playwright/test": "^1.44.0",
