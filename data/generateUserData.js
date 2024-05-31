@@ -19,3 +19,5 @@ function generateRandomPassword() {
 export const correctEmail = generateRandomEmail();
 export const correctPassword = generateRandomPassword();
 export const incorrectPassword = 'wrongPassword';
+export const registeredEmail = 'a.brodskyy@gmail.com'
+export const registeredPassword = 'Lemberg159'

@@ -1,4 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+
     export class GaragePage {
         readonly page: Page;
         readonly addCarButton: Locator;
@@ -10,6 +11,10 @@ import { expect, type Locator, type Page } from '@playwright/test';
         readonly editCarIcon: Locator;
         readonly removeCarButton: Locator;
         readonly acceptCarRemovingButton: Locator;
+        readonly mileageInput: Locator
+        readonly updateButton: Locator
+        readonly addFuelButton : Locator
+        readonly garageLink : Locator
         
         constructor(page: Page) {
             this.page = page;
@@ -22,10 +27,17 @@ import { expect, type Locator, type Page } from '@playwright/test';
             this.editCarIcon = page.locator('.icon-edit').first();
             this.removeCarButton = page.locator('.btn-outline-danger');
             this.acceptCarRemovingButton = page.locator('.btn-danger');
+            this.mileageInput = page.locator('[formcontrolname="miles"]')
+            this.updateButton = page.locator('button[type="submit"]')
+            this.addFuelButton = page.getByText('Add fuel expense', {exact: true})
+            this.garageLink = page.locator('[routerlink="garage"]')
         }
-      
+
         async clickAddCarButton() {
             await this.addCarButton.click();
+        }
+        async clickaddFuelButton() {
+            await this.addFuelButton.click();
         }
     
         async selectBrand(brand: string) {
@@ -47,5 +59,13 @@ import { expect, type Locator, type Page } from '@playwright/test';
     
         async getFirstCarName() {
             return this.firstCarName;
+        }
+
+        async removeLastCar() {
+            const carsNumberBefore = await this.page.locator('.icon-edit').count();
+            await this.editCarIcon. click();
+            await this.removeCarButton.click();
+            await this.acceptCarRemovingButton.click();
+    
         }
     }
